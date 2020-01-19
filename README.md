@@ -45,6 +45,7 @@ pip install -r requirements.txt
 #### [環境情報](#環境情報)を満たしていない場合
 
 1. PyTorchのインストール
+    
     [公式サイト](https://pytorch.org/get-started/locally/)から環境にあった方法でインストールする。
 
     例：上記の環境情報を満たしている場合は以下のようになる。
