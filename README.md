@@ -61,9 +61,9 @@ pip install -r requirements.txt
 
 3. このリポジトリを任意のディレクトリにクローンして完了。
 
-```bash
-git clone https://github.com/pystokes/mnist.git
-```
+    ```bash
+    git clone https://github.com/pystokes/mnist.git
+    ```
 
 ## 使い方
 
