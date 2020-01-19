@@ -9,6 +9,7 @@ MNISTの手書き文字分類問題をPyTorchで実装したサンプルコー�
 - Windows 10
 - Python 3.6.4
 - CUDA 9.2
+- pip
 
 CUDAの詳細は以下の通り。
 
