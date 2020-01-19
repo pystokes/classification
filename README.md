@@ -1,4 +1,5 @@
 # MNIST
+
 MNISTの手書き文字分類問題をPyTorchで実装したサンプルコード。
 
 ## 環境情報
@@ -181,3 +182,11 @@ pip install -r requirements.txt
     17:50:19 Epoch [00009/00010], Train Loss: 0.1858, Test Acc: 20759/21000 (98.9%)
     17:50:38 Epoch [00010/00010], Train Loss: 0.0006, Test Acc: 20810/21000 (99.1%)
     ```
+
+## ライセンス
+
+[MIT License](./LICENSE)
+
+## GitHub
+
+[LotFun](https://github.com/pystokes)
