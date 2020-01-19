@@ -10,12 +10,13 @@ def train(loader_train, model_obj, optimizer, loss_fn, device, total_epoch, epoc
     # ミニバッチごとに学習
     for data, targets in loader_train:
  
-        data = data.to(device) # GPUを使用するため，to()で明示的に指定
-        targets = targets.to(device) # 同上
+        # データを計算に使用するデバイスに転送するため，to()で明示的に指定
+        data = data.to(device)
+        targets = targets.to(device)
  
         optimizer.zero_grad() # 勾配を初期化
         outputs = model_obj(data, mode='train') # 順伝播の計算
-        loss = loss_fn(outputs, targets.long()) # 誤差を計算
+        loss = loss_fn(outputs, targets.long()) # 損失を計算
  
         loss.backward() # 誤差を逆伝播させる
         optimizer.step() # 重みを更新する
@@ -32,16 +33,22 @@ def test(loader_test, trained_model, device):
     with torch.no_grad(): # 推論時には勾配は不要
         for data, targets in loader_test:
  
-            data = data.to(device) #  GPUを使用するため，to()で明示的に指定
-            targets = targets.to(device) # 同上
+            # データを計算に使用するデバイスに転送するため，to()で明示的に指定
+            data = data.to(device)
+            targets = targets.to(device)
  
-            outputs = trained_model(data, mode='test') # 順伝播の計算
+            # 順伝播の計算
+            outputs = trained_model(data, mode='test')
  
-            # 推論結果の取得と正誤判定
-            _, predicted = torch.max(outputs.data, 1) # 確率が最大のラベルを取得
-            correct += predicted.eq(targets.long().data.view_as(predicted)).sum() # 正解ならば正解数をカウントアップ
+            # 推論結果から確率が最大のインデックスを取得
+            # torch.max()の返り値：
+            #   - 第一返り値：値（values）
+            #   - 第二返り値：インデックス（indices）
+            _, predicted = torch.max(outputs.data, dim=1)
+            # 正解数をカウントアップ
+            correct += predicted.eq(targets.long().data.view_as(predicted)).sum()
     
-    # 正解率を計算
-    data_num = len(loader_test.dataset) # テストデータの総数
+    # テストデータの総数
+    data_num = len(loader_test.dataset) 
 
     return correct, data_num

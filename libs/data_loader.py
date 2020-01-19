@@ -2,30 +2,30 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_split
 import torch
 from torch.utils.data import TensorDataset, DataLoader
+from sklearn.datasets import fetch_openml
+from sklearn.model_selection import train_test_split
 
 def create_mnist_data_loader(config):
 
     # MNISTのデータセットを取得（初回実行時はダウンロードするため時間がかかる）
     print('\nLoading MNIST dataset in:', config['preprocess']['data_home'])
     mnist = fetch_openml('mnist_784', data_home=config['preprocess']['data_home'])
-    print('Loaded\n')
 
-    # 入出力データの設定（入力データは255で割ることで閉区間[0, 1]に正規化する）
+    # 入出力データの設定（入力データは255で割ることで[0, 1]に正規化する）
     # 注意：yはintではなくてstringで格納されているため，intに変換する必要がある
     x = mnist.data / 255
-    y = np.array([*map(int, mnist.target)])
-    print('--- Shape of original data -------------------')
+    y = np.array([*map(int, mnist.target)]) # mapで一括変換
+
+    print('\n--- Shape of original data -------------------')
     print('x:', x.shape)
     print('y:', y.shape)
     print('----------------------------------------------\n')
 
-    # データ形式を変換：PyTorchでの形式 = [画像数，チャネル数，高さ，幅]
-    # 変換前: [画像数, 784(28x28)]
-    # 変換後: [画像数, 1, 28, 28]（グレースケールなのでチャネル数は1，高さと幅はMNISTは28）
+    # データ形式を変換：PyTorchでの形式＝[画像数，チャネル数，高さ，幅]
+    # 変換前：[画像数, 784]（784=28x28）
+    # 変換後：[画像数, 1, 28, 28]（グレースケールなのでチャネル数は1，高さと幅はMNISTは28）
     num_x = len(x)
     x = x.reshape(num_x, 1, 28, 28)
 
