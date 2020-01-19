@@ -111,7 +111,7 @@ pip install -r requirements.txt
     上記のコマンドを実行すると以下のようなログが標準出力に表示される。
 
     ```bash
-    python main.py
+    $ python main.py
 
     --- Config ---------------
     {'preprocess': {'data_home': './mnist_data',
