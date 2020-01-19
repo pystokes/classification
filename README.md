@@ -61,7 +61,7 @@ pip install -r requirements.txt
     pip install sklearn
     ```
 
-3. このリポジトリを任意のディレクトリにクローンして完了。
+3. このリポジトリを任意のディレクトリにクローンして完了
 
     ```bash
     git clone https://github.com/pystokes/mnist.git
@@ -69,7 +69,7 @@ pip install -r requirements.txt
 
 ## 使い方
 
-1. [config.json](./config.json)の各種パラメータを設定する。
+1. [config.json](./config.json)の各種パラメータを設定する
 
     ```bash
     {
@@ -102,7 +102,7 @@ pip install -r requirements.txt
     }
     ```
 
-2. 学習を実行。
+2. 学習を実行
 
     ```bash
     python main.py
