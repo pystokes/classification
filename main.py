@@ -7,9 +7,9 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 from torch import optim
-from data_loader import create_mnist_data_loader
-from model import CNN
-from trainer import train, test
+from libs.data_loader import create_mnist_data_loader
+from libs.model import CNN
+from libs.trainer import train, test
 
 def  main(config):
  
