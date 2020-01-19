@@ -184,7 +184,7 @@ pip install -r requirements.txt
     17:50:38 Epoch [00010/00010], Train Loss: 0.0006, Test Acc: 20810/21000 (99.1%)
     ```
 
-## ライセンス
+## License
 
 [MIT License](./LICENSE)
 
