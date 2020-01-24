@@ -47,10 +47,11 @@ pip install -r requirements.txt
 #### [環境情報](#環境情報)を満たしていない場合
 
 1. PyTorchのインストール
-    
+
     [公式サイト](https://pytorch.org/get-started/locally/)から環境にあった方法でインストールする。
 
     例：[環境情報](#環境情報)を満たしている場合は以下のようになる。
+
     ```bash
     pip3 install torch==1.4.0+cu92 torchvision==0.5.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
     ```
