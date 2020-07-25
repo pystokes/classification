@@ -1,11 +1,6 @@
 {
-    "preprocess": {
-        "data_home": "./mnist_data",
-        "random_state": 0,
-        "test_size": 0.3    
-    },
     "train": {
-        "num_classes": 10,
+        "data_home": "./mnist_data",
         "batch_size": 128,
         "learning_rate": 0.001,
         "shuffle": true,
